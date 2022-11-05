@@ -4,6 +4,7 @@
  */
 package GatoJava;
 
+import java.awt.Color;
 import javax.swing.JLabel;
 
 /**
@@ -15,12 +16,22 @@ public class VistaJuego extends javax.swing.JFrame {
     
     public String turno="X";
     JLabel lbs[]= new JLabel[9]; // lista de labels donde guardaremos los labels del tablero donde se tirara 
-    
+    int posiblesVictorias[][]={
+        {1,2,3},
+        {4,5,6},
+        {7,8,9},
+        {1,4,7},
+        {2,5,8},
+        {3,6,9},
+        {1,5,9},
+        {3,5,7}         
+    };
     /**
      * Creates new form VistaJuego
      */
     public VistaJuego() {
         initComponents();
+        System.out.println(posiblesVictorias[7][2]);
         this.setLocationRelativeTo(null);
         lbs[0]=jLabel1;
         lbs[1]=jLabel2;
@@ -61,6 +72,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(0, 0, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 0, 0));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setOpaque(true);
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -71,6 +83,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 0, 0));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setOpaque(true);
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -81,6 +94,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setOpaque(true);
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -91,6 +105,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 0, 0));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setOpaque(true);
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,6 +116,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel3.setBackground(new java.awt.Color(0, 0, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 0));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setOpaque(true);
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -111,6 +127,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 255));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setOpaque(true);
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -121,6 +138,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(0, 0, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 0, 0));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setOpaque(true);
         jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,6 +149,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setOpaque(true);
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -141,6 +160,7 @@ public class VistaJuego extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 255));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 0, 0));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setOpaque(true);
         jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -281,6 +301,7 @@ public class VistaJuego extends javax.swing.JFrame {
         if(lbs[casilla-1].getText().equals("")){//verificamos que la casilla este vacia
             lbs[casilla-1].setText(turno);
             cambiarTurno();
+            compruebaVictoria();
         }
     }
     
@@ -291,6 +312,30 @@ public class VistaJuego extends javax.swing.JFrame {
         }else{
             turno="X";
         }
+    }
+    //funcion para comprobar quien gana compararemos cada elemento escrito en el tablero es igual al arreglo de posibles victorias gana
+    public void compruebaVictoria(){
+       for(int i=0; i<posiblesVictorias.length;i++){
+           if(lbs[posiblesVictorias[i][0]-1].getText().equals("X")&&
+                   lbs[posiblesVictorias[i][1]-1].getText().equals("X")&&
+                    lbs[posiblesVictorias[i][2]-1].getText().equals("X")){
+               
+               lbs[posiblesVictorias[i][0]-1].setBackground(Color.YELLOW);
+               lbs[posiblesVictorias[i][1]-1].setBackground(Color.YELLOW);
+               lbs[posiblesVictorias[i][2]-1].setBackground(Color.YELLOW);
+               System.out.println("Gana X");
+           }
+           
+           if(lbs[posiblesVictorias[i][0]-1].getText().equals("O")&&
+                   lbs[posiblesVictorias[i][1]-1].getText().equals("O")&&
+                    lbs[posiblesVictorias[i][2]-1].getText().equals("O")){
+               lbs[posiblesVictorias[i][0]-1].setBackground(Color.YELLOW);
+               lbs[posiblesVictorias[i][1]-1].setBackground(Color.YELLOW);
+               lbs[posiblesVictorias[i][2]-1].setBackground(Color.YELLOW);
+               
+               System.out.println("Gana O");
+           }
+       } 
     }
     /**
      * @param args the command line arguments
