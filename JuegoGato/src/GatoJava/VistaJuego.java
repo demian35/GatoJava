@@ -13,7 +13,7 @@ import javax.swing.JLabel;
  */
 public class VistaJuego extends javax.swing.JFrame {
 
-    
+    public String nextTurn="O";
     public String turno="X";
     JLabel lbs[]= new JLabel[9]; // lista de labels donde guardaremos los labels del tablero donde se tirara 
     int posiblesVictorias[][]={
@@ -64,9 +64,12 @@ public class VistaJuego extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("gato");
+
+        jPanel1.setBackground(new java.awt.Color(255, 0, 51));
 
         jPanel2.setBackground(new java.awt.Color(0, 255, 255));
 
@@ -208,27 +211,41 @@ public class VistaJuego extends javax.swing.JFrame {
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
+
+        jButton1.setText("Reset");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(192, 192, 192)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addContainerGap(188, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(175, 175, 175))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(79, 79, 79))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(158, 158, 158)
+                .addGap(97, 97, 97)
+                .addComponent(jButton1)
+                .addGap(40, 40, 40)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(179, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -296,6 +313,11 @@ public class VistaJuego extends javax.swing.JFrame {
         tira(9);
     }//GEN-LAST:event_jLabel9MousePressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        resetGame();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     //funcion para efectuar un tiro escribiendo soobre cada label guardado en lbs
     public void tira(int casilla){
         if(lbs[casilla-1].getText().equals("")){//verificamos que la casilla este vacia
@@ -305,12 +327,25 @@ public class VistaJuego extends javax.swing.JFrame {
         }
     }
     
-    //funcion para efectuar el cambio de turno
+    //funcion para efectuar el cambio de turno al tirar
     public void cambiarTurno(){
         if(turno.equals("X")){
             turno="O";
         }else{
             turno="X";
+        }
+    }
+    //funcion para reiniciar el juego borrando todos los labels
+    public void resetGame(){
+        for(int i=0; i<lbs.length;i++){//recorremos el arreglo lbs para borrar cada label de lbs
+            lbs[i].setText("");
+            lbs[i].setBackground(Color.blue);
+        }
+        turno=nextTurn; //al turno actual le asignamos el valor del nuevo turno "O"
+        if(nextTurn.equals("O")){//si nextTurn es de "O" cambiaremos de nuevo a las "X"
+            nextTurn="X";
+        }else{//caso contrario cambiamos a "O"
+            nextTurn="O";
         }
     }
     //funcion para comprobar quien gana compararemos cada elemento escrito en el tablero es igual al arreglo de posibles victorias gana
@@ -373,6 +408,7 @@ public class VistaJuego extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
