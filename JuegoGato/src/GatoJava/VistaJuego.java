@@ -65,6 +65,12 @@ public class VistaJuego extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        lbTurno = new javax.swing.JLabel();
+        lbganador = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        scoreX = new javax.swing.JLabel();
+        scoreO = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("gato");
@@ -224,28 +230,100 @@ public class VistaJuego extends javax.swing.JFrame {
             }
         });
 
+        lbTurno.setBackground(new java.awt.Color(0, 0, 0));
+        lbTurno.setFont(new java.awt.Font("DS-Digital", 0, 24)); // NOI18N
+        lbTurno.setForeground(new java.awt.Color(0, 204, 204));
+        lbTurno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbTurno.setText("Turno del jugador X");
+        lbTurno.setOpaque(true);
+
+        lbganador.setBackground(new java.awt.Color(0, 0, 0));
+        lbganador.setFont(new java.awt.Font("DS-Digital", 1, 24)); // NOI18N
+        lbganador.setForeground(new java.awt.Color(0, 204, 204));
+        lbganador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbganador.setText("----");
+        lbganador.setOpaque(true);
+
+        jLabel10.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel10.setFont(new java.awt.Font("DS-Digital", 1, 24)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel10.setText("score x");
+        jLabel10.setOpaque(true);
+
+        jLabel11.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel11.setFont(new java.awt.Font("DS-Digital", 0, 24)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 204, 204));
+        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel11.setText("Score O");
+        jLabel11.setOpaque(true);
+
+        scoreX.setBackground(new java.awt.Color(0, 0, 0));
+        scoreX.setFont(new java.awt.Font("DS-Digital", 1, 24)); // NOI18N
+        scoreX.setForeground(new java.awt.Color(0, 204, 204));
+        scoreX.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        scoreX.setText("0");
+        scoreX.setOpaque(true);
+
+        scoreO.setBackground(new java.awt.Color(0, 0, 0));
+        scoreO.setFont(new java.awt.Font("DS-Digital", 1, 24)); // NOI18N
+        scoreO.setForeground(new java.awt.Color(0, 204, 204));
+        scoreO.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        scoreO.setText("0");
+        scoreO.setOpaque(true);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(188, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78)
+                .addComponent(jButton1)
+                .addGap(53, 53, 53))
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(175, 175, 175))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(79, 79, 79))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lbganador, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(41, 41, 41)
+                        .addComponent(lbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scoreX, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
+                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(scoreO, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(97, 97, 97)
-                .addComponent(jButton1)
-                .addGap(40, 40, 40)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addGap(124, 124, 124)
+                .addComponent(lbTurno, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(lbganador, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scoreO, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scoreX, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(51, 51, 51))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -255,14 +333,14 @@ public class VistaJuego extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -334,6 +412,7 @@ public class VistaJuego extends javax.swing.JFrame {
         }else{
             turno="X";
         }
+        lbTurno.setText("Es turno del jugador " + turno);//funcion para actualizar el label que indicara los turnos
     }
     //funcion para reiniciar el juego borrando todos los labels
     public void resetGame(){
@@ -347,6 +426,8 @@ public class VistaJuego extends javax.swing.JFrame {
         }else{//caso contrario cambiamos a "O"
             nextTurn="O";
         }
+        lbganador.setText("---"); // cuando se reinicia el juego borramos el display del ganador
+        lbTurno.setText("Es turno del jugador " + turno);
     }
     //funcion para comprobar quien gana compararemos cada elemento escrito en el tablero es igual al arreglo de posibles victorias gana
     public void compruebaVictoria(){
@@ -358,7 +439,12 @@ public class VistaJuego extends javax.swing.JFrame {
                lbs[posiblesVictorias[i][0]-1].setBackground(Color.YELLOW);
                lbs[posiblesVictorias[i][1]-1].setBackground(Color.YELLOW);
                lbs[posiblesVictorias[i][2]-1].setBackground(Color.YELLOW);
-               System.out.println("Gana X");
+               scoreX.setText(Integer.toString(Integer.parseInt(scoreX.getText())+1)); //vamos ir contando las victorias de x como lbscoreX es una cadena la convertimos a entero
+               //despues ese entero lo transformamos  a cadena para poderlo imprmir en el label
+               
+               lbganador.setText("Felicidades jugador X");
+               lbTurno.setText("Game Over");
+               
            }
            
            if(lbs[posiblesVictorias[i][0]-1].getText().equals("O")&&
@@ -368,7 +454,12 @@ public class VistaJuego extends javax.swing.JFrame {
                lbs[posiblesVictorias[i][1]-1].setBackground(Color.YELLOW);
                lbs[posiblesVictorias[i][2]-1].setBackground(Color.YELLOW);
                
-               System.out.println("Gana O");
+            
+               scoreO.setText(Integer.toString(Integer.parseInt(scoreO.getText())+1)); //vamos ir contando las victorias de y como lbscoreX es una cadena la convertimos a entero
+               //despues ese entero lo transformamos  a cadena para poderlo imprmir en el label
+               
+               lbganador.setText("Felicidades jugador O");
+               lbTurno.setText("Game Over");
            }
        } 
     }
@@ -410,6 +501,8 @@ public class VistaJuego extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -420,5 +513,9 @@ public class VistaJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lbTurno;
+    private javax.swing.JLabel lbganador;
+    private javax.swing.JLabel scoreO;
+    private javax.swing.JLabel scoreX;
     // End of variables declaration//GEN-END:variables
 }
