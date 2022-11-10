@@ -15,8 +15,8 @@ javac VistaJuego.java
 echo Termino compilacion
 echo.
 echo EMPIEZA LA EJECUCION DEL JUEGO
-
+echo. Que se diviertan , recuerden un juego limpio y sin toxixidades porfavor
+ 
  java VistaJuego.java
 
- echo. Que se diviertan , recuerden un juego limpio y sin toxixidades porfavor
  
